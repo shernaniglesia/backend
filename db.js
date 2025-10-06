@@ -10,4 +10,8 @@ const pool = mysql.createPool({
   connectionLimit: 10,
 });
 
+pool.getConnection()
+  .then(() => console.log("✅ Connected to MySQL successfully!"))
+  .catch((err) => console.error("❌ Database connection failed:", err));
+
 module.exports = { pool };

@@ -44,6 +44,10 @@ app.use("/instructor-schedule", instructorScheduleRoutes);
 app.use("/activities", activityRoutes);
 app.use("/dashboard", dashboardRoutes);
 
+app.get('/hello', (req, res) => {
+  res.send('Hello, World!'); // Send "Hello, World!" as the response
+});
+
 // Cleanup expired refresh tokens every hour
 cron.schedule("0 * * * *", async () => {
   try {
@@ -56,4 +60,5 @@ cron.schedule("0 * * * *", async () => {
 });
 
 app.listen(5000, () => console.log("Server running"));
+
 
